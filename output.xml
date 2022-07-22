@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.5 on darwin)" generated="20220722 22:08:06.228" rpa="false" schemaversion="3">
+<suite id="s1" name="test-To Do List" source="/Users/sahatsawat/Documents/GitHub/Robot-Framework-To-Do-List/test-To_Do_List.robot">
+<test id="s1-t1" name="1-Open Website" line="43">
+<kw name="Open Todo List Website">
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220722 22:08:06.310" level="INFO">Opening browser 'chrome' to base url 'https://abhigyank.github.io/To-Do-List/'.</msg>
+<status status="PASS" starttime="20220722 22:08:06.310" endtime="20220722 22:08:10.381"/>
+</kw>
+<kw name="Title Should Be" library="Selenium2Library">
+<arg>To-Do List</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20220722 22:08:10.405" level="INFO">Page title is 'To-Do List'.</msg>
+<status status="PASS" starttime="20220722 22:08:10.382" endtime="20220722 22:08:10.405"/>
+</kw>
+<status status="PASS" starttime="20220722 22:08:06.310" endtime="20220722 22:08:10.405"/>
+</kw>
+<status status="PASS" starttime="20220722 22:08:06.309" endtime="20220722 22:08:10.405"/>
+</test>
+<test id="s1-t2" name="2-Action Add Task -&gt; Complete -&gt; Delete Complete Task" line="47">
+<kw name="Add New Task">
+<kw name="Click Element" library="Selenium2Library">
+<arg>(//span[@class="mdl-tabs__ripple-container mdl-js-ripple-effect"])[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220722 22:08:10.406" level="INFO">Clicking element '(//span[@class="mdl-tabs__ripple-container mdl-js-ripple-effect"])[1]'.</msg>
+<status status="PASS" starttime="20220722 22:08:10.406" endtime="20220722 22:08:10.653"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>id=new-task</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220722 22:08:10.654" endtime="20220722 22:08:10.665"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>id=new-task</arg>
+<arg>Test Add New Task</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220722 22:08:10.665" level="INFO">Typing text 'Test Add New Task' into text field 'id=new-task'.</msg>
+<status status="PASS" starttime="20220722 22:08:10.665" endtime="20220722 22:08:10.937"/>
+</kw>
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20220722 22:08:10.938" endtime="20220722 22:08:10.938"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>//*[@id="add-item"]/button</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220722 22:08:10.938" endtime="20220722 22:08:11.449"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>//*[@id="add-item"]/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220722 22:08:11.449" level="INFO">Clicking element '//*[@id="add-item"]/button'.</msg>
+<status status="PASS" starttime="20220722 22:08:11.449" endtime="20220722 22:08:12.601"/>
+</kw>
+<status status="PASS" starttime="20220722 22:08:10.406" endtime="20220722 22:08:12.602"/>
+</kw>
+<kw name="Complete on To Do Task">
+<kw name="Click Element" library="Selenium2Library">
+<arg>(//span[@class="mdl-tabs__ripple-container mdl-js-ripple-effect"])[2]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220722 22:08:12.604" level="INFO">Clicking element '(//span[@class="mdl-tabs__ripple-container mdl-js-ripple-effect"])[2]'.</msg>
+<status status="PASS" starttime="20220722 22:08:12.603" endtime="20220722 22:08:13.806"/>
+</kw>
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20220722 22:08:13.807" endtime="20220722 22:08:13.808"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>(//*[@id="incomplete-tasks"]/li/label/span[4])[1]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220722 22:08:13.808" endtime="20220722 22:08:14.337"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>(//*[@id="incomplete-tasks"]/li/label/span[4])[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220722 22:08:14.338" level="INFO">Clicking element '(//*[@id="incomplete-tasks"]/li/label/span[4])[1]'.</msg>
+<status status="PASS" starttime="20220722 22:08:14.337" endtime="20220722 22:08:15.434"/>
+</kw>
+<status status="PASS" starttime="20220722 22:08:12.602" endtime="20220722 22:08:15.434"/>
+</kw>
+<kw name="Delete on Completed Task">
+<kw name="Click Element" library="Selenium2Library">
+<arg>(//span[@class="mdl-tabs__ripple-container mdl-js-ripple-effect"])[3]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220722 22:08:15.436" level="INFO">Clicking element '(//span[@class="mdl-tabs__ripple-container mdl-js-ripple-effect"])[3]'.</msg>
+<status status="PASS" starttime="20220722 22:08:15.436" endtime="20220722 22:08:16.517"/>
+</kw>
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20220722 22:08:16.518" endtime="20220722 22:08:16.519"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>(//span[@class="mdl-button__ripple-container"])[1]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220722 22:08:16.519" endtime="20220722 22:08:17.044"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>(//span[@class="mdl-button__ripple-container"])[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220722 22:08:17.046" level="INFO">Clicking element '(//span[@class="mdl-button__ripple-container"])[1]'.</msg>
+<status status="PASS" starttime="20220722 22:08:17.045" endtime="20220722 22:08:18.358"/>
+</kw>
+<status status="PASS" starttime="20220722 22:08:15.435" endtime="20220722 22:08:18.358"/>
+</kw>
+<status status="PASS" starttime="20220722 22:08:10.406" endtime="20220722 22:08:18.359"/>
+</test>
+<test id="s1-t3" name="3-Action Add Task -&gt; Delete To Do Task" line="52">
+<kw name="Add New Task">
+<kw name="Click Element" library="Selenium2Library">
+<arg>(//span[@class="mdl-tabs__ripple-container mdl-js-ripple-effect"])[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220722 22:08:18.362" level="INFO">Clicking element '(//span[@class="mdl-tabs__ripple-container mdl-js-ripple-effect"])[1]'.</msg>
+<status status="PASS" starttime="20220722 22:08:18.362" endtime="20220722 22:08:19.425"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>id=new-task</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220722 22:08:19.426" endtime="20220722 22:08:19.945"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>id=new-task</arg>
+<arg>Test Add New Task</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220722 22:08:19.946" level="INFO">Typing text 'Test Add New Task' into text field 'id=new-task'.</msg>
+<status status="PASS" starttime="20220722 22:08:19.945" endtime="20220722 22:08:21.576"/>
+</kw>
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20220722 22:08:21.577" endtime="20220722 22:08:21.578"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>//*[@id="add-item"]/button</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220722 22:08:21.578" endtime="20220722 22:08:22.105"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>//*[@id="add-item"]/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220722 22:08:22.106" level="INFO">Clicking element '//*[@id="add-item"]/button'.</msg>
+<status status="PASS" starttime="20220722 22:08:22.106" endtime="20220722 22:08:23.231"/>
+</kw>
+<status status="PASS" starttime="20220722 22:08:18.361" endtime="20220722 22:08:23.231"/>
+</kw>
+<kw name="Delete on To Do Task">
+<kw name="Click Element" library="Selenium2Library">
+<arg>(//span[@class="mdl-tabs__ripple-container mdl-js-ripple-effect"])[2]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220722 22:08:23.233" level="INFO">Clicking element '(//span[@class="mdl-tabs__ripple-container mdl-js-ripple-effect"])[2]'.</msg>
+<status status="PASS" starttime="20220722 22:08:23.232" endtime="20220722 22:08:24.276"/>
+</kw>
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20220722 22:08:24.276" endtime="20220722 22:08:24.276"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>(//span[@class="mdl-button__ripple-container"])[1]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220722 22:08:24.276" endtime="20220722 22:08:24.791"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>(//span[@class="mdl-button__ripple-container"])[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220722 22:08:24.791" level="INFO">Clicking element '(//span[@class="mdl-button__ripple-container"])[1]'.</msg>
+<status status="PASS" starttime="20220722 22:08:24.791" endtime="20220722 22:08:25.847"/>
+</kw>
+<status status="PASS" starttime="20220722 22:08:23.232" endtime="20220722 22:08:25.848"/>
+</kw>
+<status status="PASS" starttime="20220722 22:08:18.360" endtime="20220722 22:08:25.848"/>
+</test>
+<test id="s1-t4" name="4-Close Website" line="56">
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220722 22:08:25.850" endtime="20220722 22:08:26.436"/>
+</kw>
+<status status="PASS" starttime="20220722 22:08:25.849" endtime="20220722 22:08:26.436"/>
+</test>
+<status status="PASS" starttime="20220722 22:08:06.229" endtime="20220722 22:08:26.437"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="test-To Do List">test-To Do List</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
